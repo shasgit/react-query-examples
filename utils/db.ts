@@ -1,7 +1,13 @@
 import Loki from "lokijs";
 
 const db = new Loki("myDatabase");
-const users = db.addCollection("users");
+type Users = {
+    name: string;
+    owner: string;
+    maker: string;
+  }
+
+const users = db.addCollection<Users>("users");
 
 // Add some documents to the collection
 users.insert({ name: "mjolnir", owner: "thor", maker: "dwarves" });
